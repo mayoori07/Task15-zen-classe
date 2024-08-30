@@ -1,0 +1,37 @@
+Voici un exemple de code répondant à toutes les contraintes mentionnées:
+
+Dans le fichier HTML:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Countdown to Independence Day</title>
+</head>
+<body>
+	<h1 id="countdown"></h1>
+	<h2 id="independence-day" style="display:none;">Happy Independence Day!</h2>
+	<script src="Script.js"></script>
+</body>
+</html>
+```
+
+Dans le fichier JavaScript (Script.js):
+
+```javascript
+(function countdown(num, callback) {
+  if (num === 0) {
+    callback();
+  } else {
+    document.getElementById("countdown").innerHTML = num;
+    setTimeout(function() {
+      countdown(num - 1, callback);
+    }, 1000);
+  }
+})(10, function() {
+  document.getElementById("countdown").style.display = "none";
+  document.getElementById("independence-day").style.display = "block";
+});
+```
+
+Ce code utilise une fonction anonyme auto-exécutante pour créer une fonction de compte à rebours qui utilise la fonction `setTimeout` pour appeler elle-même avec un délai d'une seconde jusqu'à ce que le compte à rebours atteigne zéro. Une fois que le compte à rebours est terminé, la fonction de rappel est appelée pour afficher le message "Joyeuse fête de l'indépendance" et masquer le compte à rebours. Le message est initialement masqué avec la propriété CSS `display:none`.
